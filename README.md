@@ -55,8 +55,31 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+#define echoPin 9
+#define trigPin 10
 
-
+long duration;
+int distance;
+void setup()
+{
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600);
+}
+void loop(){
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2); 
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW); 
+  duration=pulseIn(echoPin, HIGH);
+  distance=duration*0.034/2;
+  Serial.print("Distance");
+  Serial.print(distance);
+  Serial.println("cm");
+}
+```
 
 
 
@@ -81,13 +104,15 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 
+![Swanky Crift](https://github.com/Rama-Lekshmi/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118541549/4223407f-1bf2-41d3-bc77-0c35b868bbff)
 
+### OUTPUT
+
+
+![Screenshot 2023-05-10 183532](https://github.com/Rama-Lekshmi/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118541549/09c786ad-5bc4-46d8-b20e-b6eade7c2347)
 
 
 
 
 ### RESULTS
-
-
-
- 
+Arduino uno is interfaced with an ultrasonic pair and measure the distance in centimeters , calculate the error.
